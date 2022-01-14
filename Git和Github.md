@@ -6,6 +6,8 @@
 git remote -v                #查看远程地址别名
 git remote add 别名 远程地址  #为远程地址创建别名
 git remote add origin https://xx
+git remote rm 别名           #移除别名
+git remote rename 旧名 新名   #重命名
 ~~~
 
 ## 1.2 本地推送到远程
