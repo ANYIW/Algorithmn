@@ -46,10 +46,31 @@ git pull 别名 分支名   #一气呵成
 
 ## 1.6 团队内部合作
 - 邀请成员
-`Settings` --> `Collaborators` --> `填写用户名` --> `邀请链接`
+```mermaid
+graph LR
+A[Settings]-->B[Collaborators]-->C[填写用户名]-->D[邀请链接]
+```
 - 团队成员可 clone、**push**
 
 ## 1.7 跨团队合作
 - 贡献开源代码
+- 
+```mermaid
+graph TB
+A[远程库A]-->|fork|B[远程库B]
+B-->|clone|C[本地B]
+C-->|change and push|B
+B-->|pull request|A
+D(结束)
+A-->|merge pull|D
 
-    `将A的远程库 fork 到B的远程库` --> `B将其clone到本地，修改后 push 到B的远程库`  --> `B点击 pull request` --> `Create pull request 发消息` --> `A merge pull`
+```
+
+## 1.8 SSH免密登录
+- 进入家目录`cd ~`
+- 删除.ssh目录`rm -rvf .ssh`
+- 生成ssh密钥`ssh-keygen -t rsa -C GitHub邮箱地址`
+- 进入.ssh目录`cd .ssh/`
+- 查看并复制id_rsa.pub文件内容`cat id_rsa.pub`
+- 复制到GitHub`Settings`  --> `SSH and GPG keys` --> `New SSH Key`
+- 回到Git通过ssh地址创建`git remote add 别名 SSH地址  `
